@@ -1,0 +1,749 @@
+/* ==========================================================================
+   1. VARIABEL & TEMA (Pusat Kendali Warna)
+   ========================================================================== */
+:root {
+    /* Brand Colors */
+    --primary: #FF6B6B;
+    --secondary: #4ECDC4;
+    --dark: #2D3436;
+    --light: #F9F9F9;
+
+    /* Theme-specific Colors (Light Mode - Default) */
+    --bg-color: #F9F9F9;
+    --card-bg: #FFFFFF;
+    --text-color: #2D3436;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] {
+    /* Theme-specific Colors (Dark Mode) */
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
+    --text-color: #E0E0E0;
+    --nav-bg: rgba(18, 18, 18, 0.8);
+}
+
+/* ==========================================================================
+   2. RESET & DASAR BODY
+   ========================================================================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    transition: background 0.5s ease, color 0.3s ease;
+    padding-top: 80px;
+}
+
+/* ==========================================================================
+   3. NAVIGASI (Header)
+   ========================================================================== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    align-items: center;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Dukungan Safari */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* Mengatur kontainer Logo agar sejajar kesamping (flex) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Jarak antara gambar dan teks */
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Mengatur ukuran gambar logo di navbar */
+.nav-logo-img {
+    height: 50px; /* Atur tinggi agar pas dengan navbar */
+    width: auto; /* Biarkan lebar menyesuaikan secara otomatis agar tidak gepeng */
+    
+    /* PENTING: Gunakan contain agar seluruh logo terlihat tanpa terpotong */
+    object-fit: contain; 
+    
+    /* Hapus border-radius agar tidak berbentuk lingkaran */
+    border-radius: 0; 
+    
+    /* Tambahkan sedikit padding jika logo terasa terlalu mepet dengan tepi navbar */
+    padding: 5px 0;
+    
+    /* Hapus box-shadow agar tidak terlihat */
+    border: none !important;
+    box-shadow: none !important;
+    display: block;
+}
+
+/* Sembunyikan logo gelap secara default (saat mode terang) */
+.logo-dark {
+    display: none;
+}
+
+/* --- LOGIKA PERUBAHAN MODE --- */
+
+/* Saat mode gelap aktif: sembunyikan logo terang, tampilkan logo gelap */
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
+[data-theme="dark"] .nav-container {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Memastikan teks "CANCERINA" di samping logo juga menyesuaikan warna */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--primary); /* Mengikuti variabel warna tema */
+}
+
+/* Kontainer untuk Tombol + Menu */
+.nav-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    color: var(--primary);
+}
+
+/* Garis Bawah Hover */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   4. THEME SWITCHER (Toggle Switch)
+   ========================================================================== */
+.theme-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mode-label {
+    font-size: 14px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.3;
+}
+
+/* Logika Ikon Menyala */
+.theme-wrapper:has(input:not(:checked)) .sun-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px orange);
+    transform: scale(1.2);
+}
+
+.theme-wrapper:has(input:checked) .moon-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px yellow);
+    transform: scale(1.2);
+}
+
+/* Struktur Slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px; width: 14px;
+    left: 3px; bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* ==========================================================================
+   12. PARTIKEL KEMBANG API - PESAN SEKARANG
+   ========================================================================== */
+/* Styling tombol utama */
+.firework-button {
+    position: relative;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background-color: #f27b76; /* Warna sesuai screenshot kamu */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    overflow: visible; /* Penting agar kembang api tidak terpotong */
+    z-index: 1;
+    transition: transform 0.2s ease;
+}
+
+.firework-button:hover {
+    transform: scale(1.05); /* Sedikit membesar saat disentuh */
+}
+
+/* Partikel kembang api */
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none; /* Agar tidak mengganggu klik */
+    z-index: 9999 !important;
+}
+
+/* ==========================================================================
+   5. HERO SECTION
+   ========================================================================== */
+.hero {
+    text-align: center;
+    padding: 100px 10%;
+    background: linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(120deg, #2d3436 0%, #000000 100%);
+}
+
+h1 { font-size: 3rem; margin-bottom: 10px; }
+.highlight { color: var(--primary); text-decoration: underline; }
+
+.cta-button {
+    background: var(--primary);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   6. MENU & CARDS
+   ========================================================================== */
+.menu-section h2, .menu-title {
+    text-align: center;
+    margin-bottom: 40px; /* Memberi ruang leluasa dengan kartu menu di bawahnya */
+    font-size: 2rem;
+    width: 100%; /* Memastikan elemen mengambil ruang penuh agar bisa ditengah */
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 50px 5%;
+}
+
+.card {
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.menu-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.btn-order {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* Pastikan kartu menu dan tombol tidak memotong partikel */
+.card, .menu-item, .firework-button {
+    overflow: visible !important;
+}
+
+/* Pastikan span di dalam tombol tidak menghalangi */
+.firework-button span {
+    position: relative;
+    pointer-events: none; /* Supaya klik/hover langsung kena ke tombolnya */
+}
+
+/* ==========================================================================
+   7. ABOUT SECTION (Diperlebar agar konsisten)
+   ========================================================================== */
+.about-section {
+    /* Padding disamakan dengan nav (5%) agar sejajar lurus ke bawah */
+    padding: 80px 5%; 
+    background-color: var(--card-bg);
+    text-align: center;
+}
+
+.about-content {
+    /* Menambah max-width dari 800px ke 1200px agar lebih leluasa ke samping */
+    max-width: 1200px; 
+    margin: 0 auto;
+    text-align: left;
+    line-height: 1.8;
+    /* Memberikan sedikit napas ekstra di dalam kontainer */
+    padding: 0 20px; 
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+/* Update pada bagian about-text h3 */
+.about-text h3.about-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--primary);
+    text-align: center; /* Membuat teks jadi rata tengah */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Opsional: Tambahkan garis dekorasi kecil di bawah judul agar makin cantik */
+.about-text h3.about-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary);
+    border-radius: 2px;
+}
+
+/* Membuat paragraf pembuka menjadi center dan lebih berjarak */
+.about-desc {
+    text-align: center;
+    max-width: 100%; /* Membatasi lebar agar teks tidak terlalu melebar ke samping */
+    margin: 0 auto 50px auto; /* Center secara horizontal dan beri jarak ke bawah */
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* Membuat teks lokasi di bagian bawah juga center agar konsisten */
+.about-location {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* ==========================================================================
+   8. BENEFIT SECTION
+   ========================================================================== */
+.benefit-list {
+    display: grid;
+    /* Menggunakan 2 kolom agar tetap leluasa ke samping */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px 60px; /* Jarak antar kolom diperlebar */
+    list-style: none;
+    padding: 0;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.benefit-list li {
+    text-align: center; /* Teks rata tengah */
+    font-size: 1.05rem;
+    line-height: 1.6; /* Jarak antar baris teks agar enak dibaca */
+    padding: 20px;
+    /* Border bawah halus untuk pemisah */
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+}
+
+.benefit-list li strong {
+    display: inline-block;
+    margin-bottom: 5px; /* Memberi sedikit jarak bawah pada judul poin */
+    color: var(--primary); /* Memberi warna pada poin utama agar lebih stand out */
+}
+
+[data-theme="dark"] .benefit-list li {
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+}
+
+/* ==========================================================================
+   9. CONTACT SECTION
+   ========================================================================== */
+.contact-section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.contact-item {
+    text-align: center; /* Teks Center sesuai keinginanmu */
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.contact-item strong {
+    font-size: 1.2rem;
+    color: var(--primary);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.contact-link {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--secondary);
+}
+
+/* Penyesuaian Mode Gelap */
+[data-theme="dark"] .contact-item {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   10. GOOGLE MAPS STYLING
+   ========================================================================== */
+.map-container {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 1200px; /* Konsisten dengan lebar konten lainnya */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.map-canvas {
+    width: 100%;
+    border-radius: 20px; /* Membuat sudut peta melengkung agar estetik */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 5px solid var(--card-bg); /* Frame halus mengikuti tema */
+}
+
+.map-canvas iframe {
+    display: block;
+    filter: grayscale(0.2) contrast(1.1); /* Sedikit sentuhan filter agar lebih menyatu dengan desain */
+    transition: filter 0.3s ease;
+}
+
+.map-canvas iframe:hover {
+    filter: grayscale(0); /* Peta menjadi berwarna penuh saat disentuh */
+}
+
+[data-theme="dark"] .map-canvas {
+    border-color: #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   11. FOOTER (VERSI FIX: LOGO & ANIMASI)
+   ========================================================================== */
+.main-footer {
+    background-color: var(--card-bg);
+    padding: 80px 5% 30px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    margin-top: 100px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Dibagi 3 kolom saja agar pas: Branding, Info Kontak, Sosmed */
+    grid-template-columns: 1.5fr 1fr 1fr; 
+    gap: 50px;
+}
+
+/* --- LOGO FOOTER (Mencegah Logo Muncul 2) --- */
+.footer-logo {
+    height: 80px; /* Ukuran yang lebih rapi */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* Sembunyikan logo gelap secara default */
+.logo-dark {
+    display: none;
+}
+
+/* Logika Dark Mode untuk logo footer */
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+[data-theme="dark"] .logo-dark {
+    display: block;
+}
+
+/* --- KOLOM TEKS --- */
+.footer-column h4 {
+    color: inherit;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.8;
+
+    display: flex;            /* Mengaktifkan sistem kolom */
+    align-items: flex-start;  /* Ikon tetap di atas jika teks panjang */
+    gap: 12px;                /* Jarak tetap antara ikon dan teks */
+    margin-bottom: 12px;
+    text-align: left;         /* Pastikan teks rata kiri */
+}
+
+.footer-column p i {
+    flex-shrink: 0;           /* WAJIB: Agar ikon tidak gepeng/mengecil */
+    width: 20px;              /* Lebar tetap agar semua teks di bawahnya lurus */
+    color: inherit;
+    font-size: 1.1rem;
+    margin-top: 4px;          /* Menyejajarkan ikon dengan baris pertama teks */
+    text-align: center;
+}
+
+/* --- BAGIAN SOSIAL MEDIA & ANIMASI --- */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Judul (Sosial Media :) */
+.footer-social h4 {
+    color: inherit; /* Atau sesuaikan warna brand */
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Baris Informasi Statis (Tanpa Klik, Tanpa Animasi) */
+.social-row-static {
+    display: flex;            /* Membuat ikon dan teks jadi dua kolom */
+    align-items: flex-start;
+    gap: 12px;                /* Jarak antara ikon dan teks */
+    color: inherit; /* Warna teks standar seperti alamat */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;      /* Jarak antar baris sama dengan kontak */
+    cursor: default;          /* Kursor tetap panah biasa, tidak bisa diklik */
+}
+
+/* Mengatur Ikon agar Sejajar Vertikal Sempurna */
+.social-row-static i {
+    flex-shrink: 0;           /* Ikon tidak akan gepeng */
+    width: 20px;              /* Lebar tetap agar teks di sampingnya lurus lurus ke bawah */
+    text-align: center;
+    color: inherit;  /* Warna ikon toska seperti di Kontak Kami */
+    font-size: 1.1rem;
+    margin-top: 4px;          /* Menyejajarkan ikon dengan baris pertama teks */
+}
+
+/* Wadah ikon agar berjajar rapi ke samping */
+.social-icons-row {
+    display: flex;
+    gap: 15px; /* Jarak antar ikon agar tidak dempet */
+    align-items: center;
+}
+
+/* Reset Link Ikon agar bersih dari garis/underscore */
+.social-icons-row a {
+    text-decoration: none !important; /* Hapus garis bawah */
+    color: inherit;
+    font-size: 1.6rem;
+    display: inline-flex; /* Penting untuk animasi transform */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none !important;
+    outline: none !important;
+}
+
+/* Efek Animasi Melompat ke Atas */
+.social-icons-row a:hover {
+    transform: translateY(-8px); /* Ikon melompat ke atas */
+    opacity: 1;
+}
+
+/* Warna Hover Khusus Ikon */
+.social-icons-row a:hover .fa-instagram { color: #E4405F; }
+.social-icons-row a:hover .fa-whatsapp { color: #25D366; }
+.social-icons-row a:hover .fa-facebook-f { color: #1877F2; }
+.social-icons-row a:hover .fa-tiktok { color: #000000; }
+[data-theme="dark"] .social-icons-row a:hover .fa-tiktok { color: #ffffff; }
+
+/* Menghilangkan sisa-sisa selector lama yang mungkin mengganggu */
+.footer-social a::after, 
+.footer-social a::before {
+    display: none !important;
+}
+
+/* --- COPYRIGHT --- */
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+
+/* Responsif untuk HP */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr; /* Jadi 2 kolom di tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .benefit-list {
+        grid-template-columns: 1fr; /* Jadi 1 kolom saja kalau di HP */
+        gap: 20px;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-social {
+        justify-content: center;
+        margin-top: 25px;
+        align-items: center; /* Judul ke tengah di HP */
+    }
+    .footer-social a {
+        margin: 0 10px;
+    }
+    .social-icons-row {
+        justify-content: center; /* Ikon ke tengah di HP */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+        text-align: center;
+    }
+    .footer-social-icons {
+        justify-content: center;
+    }
+}

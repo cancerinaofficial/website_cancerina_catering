@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANCERINA | Makan Enak, Gak Pake Ribet</title>
+    <link rel="icon" type="image/png" href="img/sticker-lingkaran-crop.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="img/cancerina-tittle-logo-light_1.png" alt="Logo Cancerina" class="nav-logo-img logo-light">
+                <img src="img/cancerina-tittle-logo-dark_1.png" alt="Logo Cancerina" class="nav-logo-img logo-dark">
+            </div>
+
+            <div class="nav-controls">
+                
+                <div class="theme-wrapper">
+                    <span class="mode-label moon-icon">🌙</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="mode-label sun-icon">☀️</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#menu" class="nav-item">Menu</a></li>
+                    <li><a href="#about" class="nav-item">Tentang</a></li>
+                    <li><a href="#contact" class="nav-item">Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Makan Enak, <span class="highlight">Gak Pake Ribet.</span></h1>
+        <h2>Mau terima beres sambil nge-scroll atau kerja? <span class="highlight">Catering kami siap melayani!</span></h2>
+        <a href="https://wa.me/6282140923360" target="_blank" style="text-decoration: none;">
+            <button class="firework-button">
+                <span>Pesan Sekarang</span>
+            </button>
+        </a>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <div class="menu-header">
+            <h2>Daftar Menu Favorit 🔥</h2>
+        </div>
+        
+        <div class="menu-relative-wrapper">
+            <button class="scroll-btn prev" onclick="scrollMenu('left')">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div id="menu-container" class="menu-grid">
+                <p>Sedang memuat menu...</p>
+            </div>
+
+            <button class="scroll-btn next" onclick="scrollMenu('right')">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- <section id="menu" class="menu-section">
+        <h2>Daftar Menu Favorit 🔥</h2>
+        <div id="menu-container" class="menu-grid">
+            <p>Sedang memuat menu lezat...</p>
+        </div>
+    </section> -->
+
+    <section id="about" class="about-section">
+        <div id="about-container">
+            <p>Memuat informasi tentang kami...</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Hubungi Kami</h2>
+        <div id="contact-container">
+            <p>Menghubungkan layanan...</p>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <img src="img/cancerina-footer-logo-light_1.png" alt="Logo Cancerina" class="footer-logo logo-light">
+                <img src="img/cancerina-footer-logo-dark_1.png" alt="Logo Cancerina" class="footer-logo logo-dark">
+                <p>Sajian lezat, sehat, dan bersahabat untuk momen spesial Anda.</p>
+                <p><strong>Cancerina Catering </strong>menyajikan hidangan lezat dengan bahan berkualitas untuk setiap momen spesial Anda di Trenggalek dan sekitarnya.</p>
+            </div>
+
+            <div class="footer-column contact">
+                <h4>KONTAK KAMI :</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Perumahan Persada Jwalita Permai Blok D.19, Pogalan, Trenggalek<br>Jawa Timur - 66371</p>
+                <p><i class="fas fa-phone"></i>0821-4092-3360</p>
+                <p><i class="fas fa-envelope"></i> hello@cancerina.com</p>
+            </div>
+            
+            <div class="footer-column footer-social">
+                <h4>Sosial Media :</h4>
+                
+                <div class="social-row-static">
+                    <i class="fab fa-instagram"></i>
+                    Instagram : <br>@cancerina.catering
+                </div>
+
+                <div class="social-row-static">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp : <br>+62 821-4092-3360
+                </div>
+
+                <div class="social-row-static">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook : <br>Cancerina Catering
+                </div>
+
+                <div class="social-row-static">
+                    <i class="fab fa-tiktok"></i>
+                    TikTok : <br>@cancerina.catering
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 - GROWNIE CODE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
