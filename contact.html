@@ -1,0 +1,97 @@
+<div class="py-24 bg-white dark:bg-zinc-950">
+    <div class="container mx-auto px-4 max-w-6xl">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <div class="space-y-10" data-aos="fade-right">
+                <div class="rounded-[2.5rem] overflow-hidden bg-zinc-100 dark:bg-zinc-900 h-80 shadow-inner relative group">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.4454833386617!2d111.7360677759579!3d-8.05595848048439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e791ba0d4545331%3A0x1ba9b6a29b353446!2sCancerina%20Catering!5e0!3m2!1sid!2sid!4v1771875553832!5m2!1sid!2sid"
+                        class="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-700" allowfullscreen="" loading="lazy">
+                    </iframe>
+                    <div class="absolute bottom-4 left-4 right-4 p-4 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md rounded-2xl text-xs shadow-xl">
+                        <p class="font-black text-leaf-dark dark:text-white uppercase tracking-tighter">Dapur Cancerina</p>
+                        <p class="opacity-60">Pogalan, Kec. Pogalan, Kabupaten Trenggalek, Jawa Timur</p>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-[2.5rem] bg-cancerina-green/10 border border-cancerina-green/20">
+                    <h4 class="text-xl font-black text-leaf-dark dark:text-white mb-2">Punya Pertanyaan Khusus?</h4>
+                    <p class="text-sm opacity-70 mb-6">Gunakan formulir cepat kami untuk menanyakan detail acara Anda.</p>
+                    <button onclick="activateOrderForm()" class="inline-flex items-center gap-3 px-8 py-3 bg-cancerina-green text-white rounded-xl font-bold text-sm hover:scale-105 transition-all">
+                        Isi Form WhatsApp <i class="fas fa-arrow-down"></i>
+                    </button>
+                    <!-- <a href="index.html#order-form" class="inline-flex items-center gap-3 px-8 py-3 bg-cancerina-green text-white rounded-xl font-bold text-sm hover:scale-105 transition-all">
+                        Isi Form WhatsApp <i class="fas fa-arrow-down"></i>
+                    </a> -->
+                </div>
+
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/cancerina.catering/" target="_blank" class="h-14 w-14 rounded-2xl bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center text-xl hover:bg-leaf-dark hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@cancerina.official" target="_blank" class="h-14 w-14 rounded-2xl bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center text-xl hover:bg-leaf-dark hover:text-white transition-all"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" class="h-14 w-14 rounded-2xl bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center text-xl hover:bg-leaf-dark hover:text-white transition-all"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+
+            <div class="relative overflow-hidden p-8 md:p-10 rounded-[3rem] border border-zinc-100 dark:border-white/5 shadow-2xl" data-aos="fade-left">
+    
+                <div class="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none">
+                    <img src="https://www.transparenttextures.com/patterns/leaf.png" alt="pattern" class="w-full h-full object-cover">
+                </div>
+
+                <div class="relative z10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-10 w-10 rounded-full bg-cancerina-green/20 flex items-center justify-center text-cancerina-green">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    <!-- <div class="bg-zinc-50 dark:bg-zinc-900 p-8 md:p-10 rounded-[3rem] border border-zinc-100 dark:border-white/5 shadow-2xl" data-aos="fade-left"> -->
+                        <h3 class="text-2xl font-black text-leaf-dark dark:text-white italic text-cancerina-green">
+                            Pesan Sekarang
+                        </h3>
+                    </div>    
+
+                        <div id="calculator-rows" class="space-y-4 mb-8">
+                            <div id="empty-state" class="py-10 text-center border-2 border-dashed border-zinc-200 dark:border-white/5 rounded-[2rem]">
+                                <i class="fas fa-shopping-basket opacity-20 text-4xl mb-3 block"></i>
+                                <p class="text-[10px] font-black uppercase tracking-widest opacity-40">
+                                    Belum ada menu dipilih
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center mb-8">
+                            <button onclick="addRow()" class="group relative flex items-center gap-3 px-8 py-4 bg-zinc-100 dark:bg-zinc-800/50 hover:bg-cancerina-green dark:hover:bg-cancerina-green rounded-2xl transition-all duration-500 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-cancerina-green/20">
+                                <div class="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-[-25deg] -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                                
+                                <span class="flex items-center justify-center w-6 h-6 rounded-full bg-cancerina-green group-hover:bg-white text-white group-hover:text-cancerina-green transition-colors duration-300">
+                                    <i class="fas fa-plus text-[10px]"></i>
+                                </span>
+                                
+                                <span class="text-[11px] font-black uppercase tracking-[0.2em] text-leaf-dark dark:text-zinc-300 group-hover:text-white transition-colors duration-300">
+                                    Tambah Menu Baru
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="pt-6 border-t border-zinc-200 dark:border-white/10">
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <p class="text-[10px] font-black uppercase opacity-40">
+                                        Total Harga<br>(Belum Termasuk Pajak dll.)
+                                    </p>
+                                    <h2 id="grand-total" class="text-3xl font-black text-leaf-dark dark:text-white">
+                                        Rp 0
+                                    </h2>
+                                </div>
+                                <button onclick="sendSimulasiWA()" class="px-6 py-4 bg-leaf-dark text-white rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-cancerina-green transition-all shadow-xl">
+                                    Bayar <i class="far fa-credit-card ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

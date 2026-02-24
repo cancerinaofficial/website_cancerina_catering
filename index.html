@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CANCERINA | Makan Enak, Gak Pake Ribet</title>
+
+        <script src="https://cdn.tailwindcss.com?plugins=typography,forms,aspect-ratio"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            'cancerina-green': '#22c55e',
+                            'leaf-dark': '#15803d',
+                        }
+                    }
+                }
+            }
+
+            // Langsung jalankan tanpa menunggu DOMContentLoaded
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') document.documentElement.classList.add('dark');
+
+        </script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+        <style>
+            .text-gradient {
+                background: linear-gradient(90deg, #15803d, #22c55e);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .no-scrollbar::-webkit-scrollbar { display: none; }
+        </style>
+
+    </head>
+    <body class="bg-base-100 text-base-content transition-colors duration-500">
+    
+        <!-- Header / Navbar -->
+        <header id="navbar-placeholder" class="sticky top-0 z-[100] bg-base-100/80 backdrop-blur-md border-b border-base-200">
+            <div class="h-16 flex items-center justify-center animate-pulse">
+                <div class="h-4 w-32 bg-base-300 rounded-full"></div>
+            </div>
+        </header>
+        <!-- End Header / Navbar -->
+
+        <main>
+            <!-- Hero -->
+            <div id="hero-placeholder" class="relative w-full block">
+                <div class="min-h-[90vh] flex items-center justify-center bg-base-200 animate-pulse">
+                    <p class="text-slate-400">Menyiapkan hidangan spesial...</p>
+                </div>
+            </div>
+            <!-- End Hero -->
+
+            <!-- Menu Preview -->
+            <section id="menu-preview-placeholder" class="bg-gradient-to-b from-base-100 to-transparent"></section>
+            <!-- End Menu Preview -->
+
+            <!-- Trust Section -->
+            <section id="trust-container" class="container mx-auto py-12 px-4"></section>
+            <!-- End Trust Section -->
+            
+            <!-- About -->
+            <div id="about-container"></div>
+            <!-- End About -->
+
+            <!-- Contact -->
+            <div id="contact-container"></div>
+            <!-- End Contact -->
+            
+            <!-- WhatsApp Form -->
+            <section id="order-form" class="hidden opacity-0 py-20 bg-white dark:bg-zinc-950">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-3xl mx-auto bg-zinc-50 dark:bg-zinc-900 p-8 md:p-12 rounded-[3rem] shadow-sm border border-zinc-100 dark:border-white/5">
+                        
+                        <div class="text-center mb-10">
+                            <h2 class="text-3xl font-black text-leaf-dark dark:text-white mb-2">Pesan Sekarang</h2>
+                            <p class="text-sm opacity-60">Isi formulir di bawah, pesanan akan langsung terkirim ke WhatsApp kami.</p>
+                        </div>
+
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-black uppercase tracking-widest opacity-50 ml-2">Nama Anda</label>
+                                    <input type="text" id="wa-name" required placeholder="Contoh: Budi Santoso" 
+                                        class="w-full px-6 py-4 rounded-2xl bg-white dark:bg-zinc-800 border-none focus:ring-2 focus:ring-cancerina-green transition-all outline-none text-sm">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-black uppercase tracking-widest opacity-50 ml-2">Ingin Tanya Tentang?</label>
+                                    <select id="wa-topic" class="w-full px-6 py-4 rounded-2xl bg-white dark:bg-zinc-800 border-none focus:ring-2 focus:ring-cancerina-green outline-none text-sm cursor-pointer appearance-none">
+                                        <option value="INFO_PRICELIST">Daftar Harga & Menu</option>
+                                        <option value="INFO_PEMESANAN">Cara Order & Pembayaran</option>
+                                        <option value="INFO_LOKASI">Cek Lokasi & Area Kirim</option>
+                                        <option value="INFO_KETERSEDIAAN">Cek Slot Tanggal Acara</option>
+                                        <option value="TANYA_LAINNYA">Pertanyaan Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black uppercase tracking-widest opacity-50 ml-2">Detail Pertanyaan</label>
+                                <textarea id="wa-question" rows="4" placeholder="Tuliskan detail yang ingin ditanyakan..." 
+                                    class="w-full px-6 py-4 rounded-3xl bg-white dark:bg-zinc-800 border-none focus:ring-2 focus:ring-cancerina-green outline-none text-sm resize-none"></textarea>
+                            </div>
+
+                            <div class="text-center pt-4">
+                                <button type="button" onclick="sendInquiryToWhatsapp()" 
+                                    class="w-full md:w-auto px-12 py-4 bg-cancerina-green hover:bg-leaf-dark text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all duration-500 transform hover:scale-105 shadow-xl shadow-cancerina-green/20">
+                                    Tanya Admin Sekarang <i class="fab fa-whatsapp ml-2 text-lg"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </section>
+            <!-- End WhatsApp Form -->
+
+        </main>
+
+        <!-- Footer -->
+        <div id="footer-placeholder"></div>
+        <!-- End Footer -->
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // ... load section lainnya
+                loadSection('menu-preview-placeholder', 'navigasi/menu-preview.html');
+            });
+
+            // Whatsapp Form Handler
+            function sendToWhatsapp() {
+                // 1. Ambil data dari elemen berdasarkan ID
+                const name = document.getElementById('wa-name').value;
+                const category = document.getElementById('wa-category').value;
+                const detail = document.getElementById('wa-detail').value;
+
+                // 2. Validasi sederhana agar nama tidak kosong
+                if (name.trim() === "") {
+                    alert("Mohon masukkan nama Anda terlebih dahulu.");
+                    return;
+                }
+
+                // 3. Konfigurasi Nomor WhatsApp (Gunakan kode negara 62)
+                const phoneNumber = "6282334232196";
+
+                // 4. Susun Format Pesan (Gunakan \n untuk baris baru)
+                const message = `Halo Cancerina Catering! 🥗\n\n` +
+                                `Saya ingin memesan melalui website:\n` +
+                                `----------------------------------\n` +
+                                `👤 *Nama:* ${name}\n` +
+                                `🍴 *Kategori:* ${category}\n` +
+                                `📝 *Detail:* ${detail || "-"}\n` +
+                                `----------------------------------\n\n` +
+                                `Mohon diproses, terima kasih!`;
+
+                // 5. Encode pesan untuk URL
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                // 6. Eksekusi buka WhatsApp
+                window.open(whatsappUrl, '_blank');
+            }
+
+        </script>
+        
+        <!-- Chat Window Gemini AI -->
+        <!-- <button onclick="toggleChat()" id="chat-bubble" class="fixed bottom-6 right-6 w-14 h-14 bg-cancerina-green text-white rounded-full shadow-2xl flex items-center justify-center z-[9999] hover:scale-110 transition-all">
+            <i class="fas fa-comment-dots text-2xl"></i>
+        </button> -->
+
+        <!-- <div id="chat-window" class="fixed bottom-24 right-6 w-[350px] h-[450px] bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl z-[9999] flex flex-col overflow-hidden hidden border border-zinc-100 dark:border-white/5 transition-all">
+            <div class="bg-cancerina-green p-4 text-white flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">🥗</div>
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-wider">Cancerina AI</p>
+                        <p class="text-[10px] opacity-80">Online | Siap Membantu</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div id="chat-content" class="flex-1 p-4 overflow-y-auto space-y-4 text-sm flex flex-col">
+                <div class="bg-zinc-100 dark:bg-zinc-800 p-3 rounded-2xl self-start max-w-[80%] text-[12px]">
+                    Halo! Saya asisten pintar Cancerina Catering. Ada yang bisa saya bantu terkait menu atau pemesanan hari ini?
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-zinc-100 dark:border-white/5 bg-zinc-50 dark:bg-zinc-900">
+                <div class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Tanya sesuatu..." class="flex-1 bg-white dark:bg-zinc-800 text-xs p-3 rounded-xl outline-none border border-zinc-200 dark:border-white/10">
+                    <button onclick="sendMessage()" class="bg-cancerina-green text-white w-10 h-10 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div> -->
+        <!-- End Chat Window Gemini AI -->
+
+        <script src="//code.tidio.co/00iydq8llkhlxu0r600oijg815ebnsgj.js" async></script>
+
+    </body>
+</html>

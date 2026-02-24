@@ -1,0 +1,314 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Gunakan class kustom yang lebih bersih agar tidak merah di editor */
+.font-dancing {
+    font-family: 'Dancing Script', cursive;
+    display: inline-block;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* style.css */
+
+.btn-iconic {
+    /* Animasi pernapasan halus saat idle */
+    animation: breathing 3s ease-in-out infinite;
+}
+
+@keyframes breathing {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+}
+
+/* Efek Kilatan (Shine) saat Hover */
+.btn-iconic::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+.btn-iconic:hover::after {
+    left: 150%;
+}
+
+/* style.css */
+
+/* Efek denyut halus pada seluruh tombol */
+@keyframes iconic-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.btn-iconic-alt {
+    animation: iconic-pulse 2s infinite;
+}
+
+/* Membuat Icon WhatsApp sedikit bergoyang */
+@keyframes wa-bounce {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-3px) rotate(10deg); }
+}
+
+.group:hover .fa-whatsapp {
+    animation: wa-bounce 0.5s ease-in-out infinite;
+}
+
+/* Animasi Mengapung Halus untuk Logo */
+.logo-active {
+    animation: logo-float 6s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+@keyframes logo-float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    33% { transform: translateY(-3px) rotate(-2deg); }
+    66% { transform: translateY(2px) rotate(2deg); }
+}
+
+/* Efek saat logo diklik */
+.logo-active:active {
+    transform: scale(0.9) rotate(-10deg);
+    transition: 0.1s;
+}
+
+/* Animasi khusus untuk Icon Logo */
+.logo-active {
+    display: inline-block;
+    animation: cook-bounce 3s ease-in-out infinite;
+}
+
+@keyframes cook-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(-5deg); }
+    75% { transform: translateY(1px) rotate(5deg); }
+}
+
+/* Saat di-hover, icon akan sedikit berputar lebih cepat sebagai feedback */
+.group:hover .logo-active {
+    animation: quick-shake 0.5s ease-in-out infinite;
+}
+
+@keyframes quick-shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* Efek Glow saat hover */
+#theme-toggle:hover {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+}
+
+/* Animasi rotasi icon saat berganti */
+#theme-toggle:active .knob {
+    transform: scale(0.9) !important;
+}
+
+.dark #theme-toggle .knob {
+    background-color: #1e293b; /* Warna gelap untuk knob bulan */
+    box-shadow: inset -3px -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Efek transisi warna halus pada background navbar */
+.sticky {
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+/* Sembunyikan scrollbar di Chrome, Safari dan Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Sembunyikan scrollbar di IE, Edge dan Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Efek Hover Masking untuk Gambar */
+.carousel-item img {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Animasi Gradient Text */
+.text-gradient-animate {
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* Menghilangkan border default carousel dan memastikan background bersih */
+#auto-slider {
+    border: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+}
+
+/* Memastikan kartu di dalam carousel memiliki tinggi yang sama persis */
+#auto-slider .carousel-item .card {
+    height: 100%; /* Memaksa kartu mengisi tinggi container */
+    display: flex;
+    flex-direction: column;
+}
+
+#auto-slider .carousel-item {
+    display: flex;
+    align-self: stretch; /* Memaksa semua item slider setinggi kartu tertinggi */
+    height: auto;
+}
+
+/* Menghaluskan tampilan card di Dark Mode agar tidak ada garis putih/abu di pinggir */
+.dark #auto-slider .card {
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Garis sangat tipis hampir tak terlihat */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Bayangan lebih dalam untuk kedalaman */
+}
+
+/* Menghilangkan garis pembatas antar section jika ada */
+#menu-preview-placeholder {
+    background: transparent;
+    border: none;
+}
+
+/* Menghaluskan transisi teks saat ganti tema */
+h2, p, span {
+    transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efek gradien halus di sisi kanan-kiri slider agar tidak terpotong kaku */
+#auto-slider::before,
+#auto-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.dark #auto-slider::before {
+    background: linear-gradient(to right, #0f172a, transparent);
+    left: 0;
+}
+.dark #auto-slider::after {
+    background: linear-gradient(to left, #0f172a, transparent);
+    right: 0;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Membuat tombol terasa lebih interaktif saat disentuh */
+.group:hover button {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+}
+
+/* Pastikan transisi warna lancar */
+button {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.avatar img {
+    object-fit: cover;
+}
+
+/* Efek halus saat hover pada teks lokasi */
+.text-cancerina-green {
+    transition: all 0.3s ease;
+}
+
+.text-sm:hover .text-cancerina-green {
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+}
+
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-10px) rotate(-12deg); }
+}
+.animate-bounce-slow {
+    animation: bounce-slow 4s ease-in-out infinite;
+}
+
+.group, .group * {
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.animate-pulse-soft {
+    animation: pulse-soft 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-150%) skewX(-25deg); }
+    100% { transform: translateX(250%) skewX(-25deg); }
+}
+.animate-shimmer {
+    animation: shimmer 2s infinite;
+}
+
+/* Menghilangkan tanda panah angka pada input qty */
+.qty-input::-webkit-inner-spin-button, 
+.qty-input::-webkit-outer-spin-button { 
+    opacity: 1; /* Munculkan tanda panah angka agar mudah diklik */
+}
+
+/* Memaksa tombol SweetAlert muncul dengan warna hijau Cancerina */
+.swal-button-fix {
+    background-color: #166534 !important; /* Warna Hijau Daun */
+    color: white !important; /* Teks Putih */
+    padding: 12px 30px !important;
+    border-radius: 12px !important;
+    font-weight: bold !important;
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    display: inline-block !important; /* Memastikan tidak tersembunyi */
+    opacity: 1 !important; /* Memastikan tidak transparan */
+}
+
+/* Efek sedikit terang saat disentuh */
+.swal-button-fix:hover {
+    background-color: #22c55e !important; 
+}

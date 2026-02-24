@@ -1,0 +1,169 @@
+<section class="py-24 bg-base-200/50 dark:bg-base-300/20 overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+            
+            <div class="w-full lg:w-1/2 relative" data-aos="fade-left">
+    
+                <div class="relative max-w-[300px] mx-auto lg:ml-auto group mb-12">
+                    <div class="absolute inset-0 bg-cancerina-green/10 dark:bg-cancerina-green/20 rounded-full blur-[80px]"></div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-[3rem] shadow-xl border-4 border-white dark:border-white/10">
+                            <img src="https://images.unsplash.com/photo-1556910110-a5a63dfd393c?q=80&w=800" 
+                                class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" 
+                                alt="Dapur Cancerina">
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -left-6 p-6 rounded-[2.5rem] shadow-2xl bg-white dark:bg-zinc-900 border border-base-200 dark:border-white/10">
+                            <p class="text-cancerina-green text-4xl font-black italic mb-1 leading-none tracking-tighter">
+                                2020
+                            </p>
+                            <p class="text-[9px] uppercase font-black tracking-[0.1em] leading-tight text-leaf-dark dark:text-white/70">
+                                Melayani dengan<br>
+                                <span class="text-cancerina-green">
+                                    Hati Sejak
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-sm mx-auto lg:ml-auto mt-10" data-aos="fade-up">
+                    <div class="relative p-7 rounded-[2.5rem] bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-base-200 dark:border-white/5 shadow-2xl shadow-cancerina-green/5 overflow-hidden">
+                        
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-2">
+                                <div class="relative flex h-3 w-3">
+                                    <span id="status-pulse" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                    <span id="status-dot" class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                </div>
+                                <span id="status-text" class="text-[13px] font-black uppercase underline tracking-[0.2em] dark:text-white/90">
+                                    Live Status
+                                </span>
+                            </div>
+                            <!-- <i class="fas fa-clock opacity-20 text-xs"></i> -->
+
+                            <div class="flex flex-col items-end">
+                                <div id="digital-clock" class="text-xs font-black tracking-widest font-mono">
+                                    00:00:00
+                                </div>
+                                <span class="text-[7px] uppercase font-bold opacity-30 tracking-tighter">WIB / GMT+7</span>
+                            </div>
+
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="relative pl-6 border-l-2 border-cancerina-green/30">
+                                <div class="absolute -left-[5px] top-0 h-2 w-2 rounded-full bg-cancerina-green"></div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-[10px] font-black uppercase tracking-widest text-cancerina-green">Senin — Jumat</h4>
+                                        <!-- <p class="text-[9px] italic opacity-50 dark:opacity-40">Produksi Intensif</p> -->
+                                    </div>
+                                    <p class="text-xs font-black text-leaf-dark dark:text-white">07:00 — 17:00</p>
+                                </div>
+                            </div>
+
+                            <div class="relative pl-6 border-l-2 border-base-200 dark:border-white/10">
+                                <div class="absolute -left-[5px] top-0 h-2 w-2 rounded-full bg-base-300 dark:bg-zinc-700"></div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-[10px] font-black uppercase tracking-widest opacity-60">Sabtu</h4>
+                                        <!-- <p class="text-[9px] italic opacity-50 dark:opacity-40">Fokus Pengiriman</p> -->
+                                    </div>
+                                    <p class="text-xs font-black text-leaf-dark dark:text-white">07:00 — 14:00</p>
+                                </div>
+                            </div>
+
+                            <div class="relative pl-6 py-4 px-3 rounded-2xl border-l-2 border-dashed border-cancerina-green bg-cancerina-green/[0.03] dark:bg-cancerina-green/[0.05] transition-all duration-500 hover:bg-cancerina-green/[0.08]">
+                                <div class="absolute -left-[5px] top-4 h-2 w-2 rounded-full border-2 border-cancerina-green bg-white dark:bg-zinc-900 shadow-[0_0_8px_rgba(var(--color-cancerina-green),0.5)]"></div>
+                                
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <h4 class="text-[10px] font-black uppercase tracking-widest text-cancerina-green">Minggu</h4>
+                                            <span class="px-1.5 py-0.5 rounded bg-cancerina-green text-white text-[7px] font-black uppercase animate-pulse">Special</span>
+                                        </div>
+                                        <p class="text-[10px] font-bold text-leaf-dark dark:text-white leading-tight">Khusus Event & Large Order</p>
+                                        <p class="text-[9px] italic opacity-60 mt-1 dark:text-white/50">Minimal order berlaku</p>
+                                    </div>
+                                    
+                                    <div class="text-cancerina-green opacity-40">
+                                        <i class="fas fa-calendar-check text-lg"></i>
+                                    </div>
+                                </div>
+
+                                <div class="absolute inset-0 opacity-[0.03] pointer-events-none overflow-hidden rounded-2xl">
+                                    <div class="absolute rotate-45 -right-2 -bottom-2 text-4xl">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="time-notif" class="mt-8 pt-4 border-t border-base-100 dark:border-white/5 text-center">
+                            <p id="time-remaining-text" class="text-[10px] font-bold text-leaf-dark dark:text-white/60 italic"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w-full lg:w-1/2" data-aos="fade-right">
+                <div class="inline-flex items-center gap-3 mb-6 text-cancerina-green">
+                    <span class="h-[2px] w-12 bg-cancerina-green"></span>
+                    <span class="text-xs font-black uppercase tracking-widest">
+                        Kisah Kami
+                    </span>
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-black text-leaf-dark dark:text-white leading-[1.1] mb-8">
+                    Berawal dari Dapur Rumah untuk 
+                    <span class="text-cancerina-green italic decoration-wavy decoration-cancerina-green/30">
+                        Meja Anda.
+                    </span>
+                </h2>
+
+                <div class="space-y-6 text-base md:text-lg opacity-85 leading-relaxed mb-10 dark:text-slate-300">
+                    <p>
+                        <strong class="text-leaf-dark dark:text-leaf-dark">
+                            Cancerina Catering
+                        </strong> 
+                        lahir dari keyakinan sederhana: bahwa setiap orang berhak menikmati hidangan yang bersih, sehat, dan jujur layaknya masakan Ibu di rumah.
+                    </p>
+                    <p>
+                        Bermula dari melayani tetangga terdekat di Pogalan, kini kami telah dipercaya menjadi mitra konsumsi harian bagi ratusan keluarga, kantor, dan instansi di Trenggalek. Namun, satu hal yang tidak pernah berubah adalah 
+                        <span class="text-cancerina-green font-bold">
+                            Amanah
+                        </span> 
+                        kami dalam menjaga kualitas setiap butir nasi yang kami sajikan.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-8 py-8 border-y border-base-300 dark:border-white/10">
+                    <div class="group">
+                        <p class="text-2xl font-black text-leaf-dark dark:text-leaf-dark group-hover:text-cancerina-green transition-colors">
+                            15k+
+                        </p>
+                        <p class="text-[10px] uppercase font-bold opacity-50 tracking-widest">
+                            Porsi Terlayani
+                        </p>
+                    </div>
+                    <div class="group">
+                        <p class="text-2xl font-black text-leaf-dark dark:text-leaf-dark group-hover:text-cancerina-green transition-colors">
+                            100%
+                        </p>
+                        <p class="text-[10px] uppercase font-bold opacity-50 tracking-widest">
+                            Bahan Halal
+                        </p>
+                    </div>
+                    <!-- <div class="group">
+                        <p class="text-2xl font-black text-leaf-dark dark:text-white group-hover:text-cancerina-green transition-colors">0</p>
+                        <p class="text-[10px] uppercase font-bold opacity-50 tracking-widest">Bahan Pengawet</p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

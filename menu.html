@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Katalog Menu - Cancerina Catering</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'cancerina-green': '#22c55e',
+                            'leaf-dark': '#166534',
+                        }
+                    }
+                }
+            }
+
+            // Langsung jalankan tanpa menunggu DOMContentLoaded
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') document.documentElement.classList.add('dark');
+
+        </script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body class="bg-base-100 transition-colors duration-500">
+
+        <header id="navbar-placeholder" class="sticky top-0 z-[100] bg-base-100/80 backdrop-blur-md border-b border-base-200">
+        </header>
+
+        <header class="pt-32 pb-12 bg-transparent">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <span class="text-cancerina-green font-bold tracking-[0.4em] uppercase text-[10px] mb-4 block">Koleksi Kuliner Lengkap</span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-leaf-dark dark:text-cancerina-green leading-none mb-8">
+                    Pilih Cita Rasa <span class="italic font-serif opacity-80 text-3xl md:text-5xl block md:inline text-base-content">Favorit Anda</span>
+                </h1>
+                <div class="h-[2px] w-24 bg-cancerina-green mx-auto mb-10"></div>
+            </div>
+        </header>
+
+        <div class="sticky top-[72px] z-40 bg-base-100/90 backdrop-blur-md py-6 border-b border-base-200">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button onclick="filterMenu('all')" class="category-btn active px-6 py-2 rounded-full border border-cancerina-green bg-cancerina-green text-white text-xs font-bold uppercase tracking-wider transition-all">Semua</button>
+                    <button onclick="filterMenu('tradisional')" class="category-btn px-6 py-2 rounded-full border border-base-300 hover:border-cancerina-green text-xs font-bold uppercase tracking-wider transition-all">Tradisional</button>
+                    <button onclick="filterMenu('nasi-kotak')" class="category-btn px-6 py-2 rounded-full border border-base-300 hover:border-cancerina-green text-xs font-bold uppercase tracking-wider transition-all">Nasi Kotak</button>
+                    <button onclick="filterMenu('snack')" class="category-btn px-6 py-2 rounded-full border border-base-300 hover:border-cancerina-green text-xs font-bold uppercase tracking-wider transition-all">Snack Box</button>
+                    <button onclick="filterMenu('sehat')" class="category-btn px-6 py-2 rounded-full border border-base-300 hover:border-cancerina-green text-xs font-bold uppercase tracking-wider transition-all">Sehat</button>
+                    <button onclick="filterMenu('acara')" class="category-btn px-6 py-2 rounded-full border border-base-300 hover:border-cancerina-green text-xs font-bold uppercase tracking-wider transition-all">Acara / Prasmanan</button>
+                </div>
+            </div>
+        </div>
+
+        <main class="py-16 max-w-7xl mx-auto px-6">
+            <div id="full-menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                
+                <div class="menu-card" data-category="tradisional acara">
+                    <div class="group relative flex flex-col h-full bg-base-100 dark:bg-slate-900 shadow-xl rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 border border-base-200 dark:border-slate-800">
+                        <figure class="relative aspect-square overflow-hidden"> 
+                            <img src="/img/menu-makanan/ayam-lodho-kampung.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Ayam Lodho" />
+                        </figure>
+                        <div class="card-body p-8 flex flex-col flex-grow">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
+                                    Tradisional
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+                                    Event
+                                </span>
+                            </div>
+                            <h3 class="card-title text-2xl font-black group-hover:text-cancerina-green transition-colors min-h-[3rem] items-start leading-tight">
+                                Ayam Lodho Kampung
+                            </h3>
+                            <p class="text-sm opacity-60 leading-relaxed flex-grow mt-2 text-slate-600 dark:text-slate-400">
+                                Daging ayam kampung pilihan dengan kuah santan kental rempah pedas otentik.
+                            </p>
+                            <div class="flex justify-between items-center pt-6 mt-6 border-t border-base-200 dark:border-slate-800">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase opacity-40 font-black">
+                                        Harga mulai
+                                    </span>
+                                    <span class="text-2xl font-black text-leaf-dark dark:text-cancerina-green">
+                                        Rp 35.000
+                                    </span>
+                                </div>
+                                <a href="https://wa.me/628123456789?text=Halo%20Cancerina,%20saya%20ingin%20pesan%20Ayam%20Lodho%20Kampung" target="_blank" class="btn btn-circle bg-cancerina-green hover:bg-leaf-dark border-none text-white shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="tradisional acara">
+                    <div class="group relative flex flex-col h-full bg-base-100 dark:bg-slate-900 shadow-xl rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 border border-base-200 dark:border-slate-800">
+                        <figure class="relative aspect-square overflow-hidden"> 
+                            <img src="/img/menu-makanan/tumpeng-mini-syukuran.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nasi Kotak" />
+                        </figure>
+                        <div class="card-body p-8 flex flex-col flex-grow">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
+                                    Tradisional
+                                </span>
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-indigo-100 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400">
+                                    Event
+                                </span>
+                            </div>
+                            <h3 class="card-title text-2xl font-black group-hover:text-cancerina-green transition-colors min-h-[3rem] items-start leading-tight">
+                                Tumpeng Mini Syukuran
+                            </h3>
+                            <p class="text-sm opacity-60 leading-relaxed flex-grow mt-2 text-slate-600 dark:text-slate-400">
+                                Nasi kuning gurih dengan 7 macam lauk pauk untuk acara spesial Anda.
+                            </p>
+                            <div class="flex justify-between items-center pt-6 mt-6 border-t border-base-200 dark:border-slate-800">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase opacity-40 font-black">
+                                        Harga mulai
+                                    </span>
+                                    <span class="text-2xl font-black text-leaf-dark dark:text-cancerina-green">
+                                        Rp 30.000
+                                    </span>
+                                </div>
+                                <a href="https://wa.me/628123456789?text=Halo%20Cancerina,%20saya%20ingin%20pesan%20Nasi%20Kotak%20Premium" target="_blank" class="btn btn-circle bg-cancerina-green hover:bg-leaf-dark border-none text-white shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="nasi-kotak">
+                    <div class="group relative flex flex-col h-full bg-base-100 dark:bg-slate-900 shadow-xl rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 border border-base-200 dark:border-slate-800">
+                        <figure class="relative aspect-square overflow-hidden"> 
+                            <img src="/img/menu-makanan/nasi-kotak-premium.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nasi Kotak" />
+                        </figure>
+                        <div class="card-body p-8 flex flex-col flex-grow">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                                    Lunch Box
+                                </span>
+                            </div>
+                            <h3 class="card-title text-2xl font-black group-hover:text-cancerina-green transition-colors min-h-[3rem] items-start leading-tight">
+                                Nasi Kotak Premium
+                            </h3>
+                            <p class="text-sm opacity-60 leading-relaxed flex-grow mt-2 text-slate-600 dark:text-slate-400">
+                                Paket lengkap dengan nasi aromatik, lauk utama, sayuran segar, dan sambal khas.
+                            </p>
+                            <div class="flex justify-between items-center pt-6 mt-6 border-t border-base-200 dark:border-slate-800">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase opacity-40 font-black">
+                                        Harga mulai
+                                    </span>
+                                    <span class="text-2xl font-black text-leaf-dark dark:text-cancerina-green">
+                                        Rp 22.000
+                                    </span>
+                                </div>
+                                <a href="https://wa.me/628123456789?text=Halo%20Cancerina,%20saya%20ingin%20pesan%20Nasi%20Kotak%20Premium" target="_blank" class="btn btn-circle bg-cancerina-green hover:bg-leaf-dark border-none text-white shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="nasi-kotak">
+                    <div class="group relative flex flex-col h-full bg-base-100 dark:bg-slate-900 shadow-xl rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 border border-base-200 dark:border-slate-800">
+                        <figure class="relative aspect-square overflow-hidden"> 
+                            <img src="/img/menu-makanan/kids-bento-box.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nasi Kotak" />
+                        </figure>
+                        <div class="card-body p-8 flex flex-col flex-grow">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                                    Lunch Box
+                                </span>
+                            </div>
+                            <h3 class="card-title text-2xl font-black group-hover:text-cancerina-green transition-colors min-h-[3rem] items-start leading-tight">
+                                Kids Bento Box
+                            </h3>
+                            <p class="text-sm opacity-60 leading-relaxed flex-grow mt-2 text-slate-600 dark:text-slate-400">
+                                Menu sehat lucu untuk si kecil dengan nugget homemade dan sayuran warna-warni.
+                            </p>
+                            <div class="flex justify-between items-center pt-6 mt-6 border-t border-base-200 dark:border-slate-800">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase opacity-40 font-black">
+                                        Harga mulai
+                                    </span>
+                                    <span class="text-2xl font-black text-leaf-dark dark:text-cancerina-green">
+                                        Rp 28.000
+                                    </span>
+                                </div>
+                                <a href="https://wa.me/628123456789?text=Halo%20Cancerina,%20saya%20ingin%20pesan%20Nasi%20Kotak%20Premium" target="_blank" class="btn btn-circle bg-cancerina-green hover:bg-leaf-dark border-none text-white shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="snack">
+                    <div class="group relative flex flex-col h-full bg-base-100 dark:bg-slate-900 shadow-xl rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 border border-base-200 dark:border-slate-800">
+                        <figure class="relative aspect-square overflow-hidden"> 
+                            <img src="/img/menu-makanan/snack-box-elegant.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nasi Kotak" />
+                        </figure>
+                        <div class="card-body p-8 flex flex-col flex-grow">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400">
+                                    Snack Box
+                                </span>
+                            </div>
+                            <h3 class="card-title text-2xl font-black group-hover:text-cancerina-green transition-colors min-h-[3rem] items-start leading-tight">
+                                Snack Box Elegant
+                            </h3>
+                            <p class="text-sm opacity-60 leading-relaxed flex-grow mt-2 text-slate-600 dark:text-slate-400">
+                                Pilihan 3 kue basah premium dan 1 air mineral untuk rapat atau seminar.
+                            </p>
+                            <div class="flex justify-between items-center pt-6 mt-6 border-t border-base-200 dark:border-slate-800">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase opacity-40 font-black">
+                                        Harga mulai
+                                    </span>
+                                    <span class="text-2xl font-black text-leaf-dark dark:text-cancerina-green">
+                                        Rp 15.000
+                                    </span>
+                                </div>
+                                <a href="https://wa.me/628123456789?text=Halo%20Cancerina,%20saya%20ingin%20pesan%20Nasi%20Kotak%20Premium" target="_blank" class="btn btn-circle bg-cancerina-green hover:bg-leaf-dark border-none text-white shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="sehat">
+                    <div class="group relative flex flex-col h-full bg-base-100 dark:bg-slate-900 shadow-xl rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 border border-base-200 dark:border-slate-800">
+                        <figure class="relative aspect-square overflow-hidden"> 
+                            <img src="/img/menu-makanan/healthy-clean-eating.jpeg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Nasi Kotak" />
+                        </figure>
+                        <div class="card-body p-8 flex flex-col flex-grow">
+                            <div class="flex gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest bg-cyan-100 text-cyan-600 dark:bg-cyan-900/30 dark:text-cyan-400">
+                                    Sehat
+                                </span>
+                            </div>
+                            <h3 class="card-title text-2xl font-black group-hover:text-cancerina-green transition-colors min-h-[3rem] items-start leading-tight">
+                                Healthy Clean Eating
+                            </h3>
+                            <p class="text-sm opacity-60 leading-relaxed flex-grow mt-2 text-slate-600 dark:text-slate-400">
+                                Pilihan 3 kue basah premium dan 1 air mineral untuk rapat atau seminar.
+                            </p>
+                            <div class="flex justify-between items-center pt-6 mt-6 border-t border-base-200 dark:border-slate-800">
+                                <div class="flex flex-col">
+                                    <span class="text-[10px] uppercase opacity-40 font-black">
+                                        Harga mulai
+                                    </span>
+                                    <span class="text-2xl font-black text-leaf-dark dark:text-cancerina-green">
+                                        Rp 40.000
+                                    </span>
+                                </div>
+                                <a href="https://wa.me/628123456789?text=Halo%20Cancerina,%20saya%20ingin%20pesan%20Nasi%20Kotak%20Premium" target="_blank" class="btn btn-circle bg-cancerina-green hover:bg-leaf-dark border-none text-white shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <div id="footer-placeholder"></div>
+        <!-- End Footer -->
+        
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <script>
+
+            // Fungsi filterMenu Anda sudah benar, tetap biarkan di sini atau pindah ke scripts.js
+            function filterMenu(category) {
+                const cards = document.querySelectorAll('.menu-card');
+                const buttons = document.querySelectorAll('.category-btn');
+                const clickedBtn = window.event ? window.event.currentTarget : null;
+
+                if (clickedBtn) {
+                    buttons.forEach(btn => {
+                        btn.classList.remove('bg-cancerina-green', 'text-white', 'active');
+                        btn.classList.add('border-base-300');
+                    });
+                    clickedBtn.classList.add('bg-cancerina-green', 'text-white', 'active');
+                    clickedBtn.classList.remove('border-base-300');
+                }
+
+                cards.forEach(card => {
+                    const data = card.getAttribute('data-category');
+                    if (!data) return;
+                    const categories = data.split(' ');
+
+                    if (category === 'all' || categories.includes(category)) {
+                        card.style.display = 'block';
+                        card.style.opacity = '1';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // (function() {
+            //     const savedTheme = localStorage.getItem('theme') || 'light';
+            //     document.documentElement.setAttribute('data-theme', savedTheme);
+            //     if (savedTheme === 'dark') {
+            //         document.documentElement.classList.add('dark');
+            //     } else {
+            //         document.documentElement.classList.remove('dark');
+            //     }
+            // })();
+
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            'cancerina-green': '#22c55e',
+                            'leaf-dark': '#166534',
+                        }
+                    }
+                }
+            }
+        </script>
+
+    </body>
+
+</html>
