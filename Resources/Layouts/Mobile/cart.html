@@ -1,0 +1,154 @@
+<div class="block w-full min-h-screen bg-slate-50 dark:bg-slate-950 pb-40">
+    
+    <!-- <div class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 px-6 py-4 flex items-center justify-start gap-4">
+        <button @click="$store.navigasi.pindah('home')" 
+                class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-500 active:scale-90 transition-all">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <h2 class="text-sm font-black text-slate-800 dark:text-white uppercase tracking-widest">
+            Kembali
+        </h2>
+
+    </div> -->
+
+    <div class="mt-8 mb-8 text-center" 
+        data-aos="fade-down">
+        <h2 class="text-2xl font-black text-slate-800 dark:text-white uppercase tracking-tighter">
+            Keranjang 
+            <span class="text-cancerina-green text-stroke-small">
+                Belanja
+            </span>
+        </h2>
+        <div class="flex items-center justify-center gap-2 mt-2">
+            <span class="h-[1px] w-12 bg-slate-200 dark:bg-slate-800"></span>
+            <p class="text-[8px] font-bold text-slate-400 uppercase tracking-[0.3em]">
+                Cancerina Catering
+            </p>
+            <span class="h-[1px] w-12 bg-slate-200 dark:bg-slate-800"></span>
+        </div>
+    </div>
+
+    <div class="p-4">
+        <template x-if="$store.keranjang.items.length > 0">
+            <div class="space-y-4">
+                <div class="space-y-3">
+                    <template x-for="item in $store.keranjang.items" :key="item.id">
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-3 border border-slate-100 dark:border-slate-800 flex gap-4 shadow-sm">
+                            <div class="w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
+                                <img :src="item.img" class="w-full h-full object-cover" :alt="item.name">
+                            </div>
+
+                            <div class="flex-1 flex flex-col justify-between py-1">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="text-sm font-bold text-slate-800 dark:text-white leading-tight pr-2" x-text="item.name"></h4>
+                                    <button @click="$store.keranjang.removeItem(item.id)" class="text-red-400 p-1 active:scale-75 transition-transform">
+                                        <i class="fa-solid fa-trash-can text-xs"></i>
+                                    </button>
+                                </div>
+
+                                <div class="flex items-center justify-between mt-2">
+                                    <span class="text-sm font-black text-green-600" x-text="$store.keranjang.formatRupiah(item.price)"></span>
+                                    
+                                    <div class="flex items-center bg-slate-50 dark:bg-slate-800 rounded-xl p-1 border border-slate-200/50 dark:border-slate-700/50">
+                                        <button @click="$store.keranjang.kurangQty(item.id)" 
+                                                :disabled="item.qty <= (item.minOrder || 1)"
+                                                class="w-7 h-7 flex items-center justify-center transition-colors"
+                                                :class="item.qty <= (item.minOrder || 1) ? 'text-slate-200 cursor-not-allowed opacity-50' : 'text-slate-400 active:text-green-600'">
+                                            <i class="fa-solid fa-minus text-[10px]"></i>
+                                        </button>
+                                        <span class="px-2 text-xs font-black text-slate-800 dark:text-white" x-text="item.qty"></span>
+                                        <button @click="$store.keranjang.tambahQty(item.id)" class="w-7 h-7 flex items-center justify-center text-slate-400 active:text-green-600">
+                                            <i class="fa-solid fa-plus text-[10px]"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+        <template x-if="$store.keranjang.items.length === 0">
+            <div class="flex flex-col items-center justify-center py-24 text-center">
+                <div class="w-24 h-24 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center shadow-inner mb-6">
+                    <i class="fa-solid fa-basket-shopping text-3xl text-slate-200"></i>
+                </div>
+                <h3 class="text-lg font-black text-slate-800 dark:text-white uppercase tracking-tighter">
+                    Keranjang Kosong
+                </h3>
+                <p class="text-[8px] text-slate-400 mt-2 mb-8 uppercase tracking-[0.2em]">
+                    Belum ada menu yang ditambahkan
+                </p>
+                <button @click="$store.navigasi.pindah('menu')" 
+                    class="px-8 py-4 bg-green-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-green-500/20 active:scale-95">
+                    Lihat Menu
+                </button>
+            </div>
+        </template>
+    </div>
+
+    <template x-if="$store.keranjang.items.length > 0">
+        <div class="fixed bottom-20 left-0 right-0 p-4 z-40" 
+            x-transition:enter="transition ease-out duration-300 transform translate-y-10" 
+            x-transition:enter-start="translate-y-full">
+            
+            <div class="mb-5 bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-slate-100 dark:border-slate-800 overflow-hidden relative">
+                
+                <div class="absolute top-0 left-0 right-0 h-1 flex gap-1 justify-center opacity-20 dark:opacity-10">
+                    <template x-for="i in 15">
+                        <div class="w-2.5 h-2.5 bg-slate-400 dark:bg-slate-600 rounded-full -translate-y-1/2"></div>
+                    </template>
+                </div>
+
+                <div class="p-4 pb-2 border-b border-dashed border-slate-100 dark:border-slate-800 relative">
+                    
+                    <div class="flex items-center justify-between mb-4 pt-1">
+                        <div class="flex items-center gap-2">
+                            <div class="w-1.5 h-4 bg-green-600 rounded-full"></div>
+                            <h4 class="text-[11px] font-black uppercase tracking-[0.2em] text-slate-800 dark:text-white">
+                                Rincian Pesanan
+                            </h4>
+                        </div>
+                        <i class="fa-solid fa-receipt text-slate-300 dark:text-slate-700 text-xs"></i>
+                    </div>
+                    
+                    <div class="absolute -bottom-3 -left-3 w-6 h-6 bg-slate-50 dark:bg-slate-950 rounded-full border border-slate-100 dark:border-slate-800 shadow-inner"></div>
+                    <div class="absolute -bottom-3 -right-3 w-6 h-6 bg-slate-50 dark:bg-slate-950 rounded-full border border-slate-100 dark:border-slate-800 shadow-inner"></div>
+
+                    <div class="space-y-2.5">
+                        <div class="flex justify-between text-[10px] text-slate-400 uppercase font-bold tracking-widest">
+                            <span>Subtotal</span>
+                            <span class="text-slate-800 dark:text-white" x-text="$store.keranjang.formatRupiah($store.keranjang.subtotal)"></span>
+                        </div>
+                        <!-- <div class="flex justify-between text-[10px] text-slate-400 uppercase font-bold tracking-widest">
+                            <span>Ongkir</span>
+                            <span class="text-slate-800 dark:text-white" x-text="$store.keranjang.formatRupiah($store.keranjang.ongkir)"></span>
+                        </div> -->
+                        <div class="flex justify-between text-[10px] text-green-600 dark:text-green-400 font-black italic uppercase tracking-widest">
+                            <span>Biaya Layanan</span>
+                            <span x-text="'' + $store.keranjang.formatRupiah($store.keranjang.biayaLayanan)"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 flex items-center justify-between bg-slate-50 dark:bg-white/5">
+                    <div class="pl-2">
+                        <p class="text-[9px] text-slate-400 uppercase font-black tracking-widest leading-none mb-1.5 transition-colors">Total Bayar</p>
+                        <h3 class="text-xl font-black text-slate-800 dark:text-white leading-none" 
+                            x-text="$store.keranjang.formatRupiah($store.keranjang.total)">
+                        </h3>
+                    </div>
+                    
+                    <button @click="$store.navigasi.pindah('checkout'); $store.keranjang.step = 1"
+                            class="px-6 py-4 bg-green-600 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center gap-2 active:scale-95 shadow-lg shadow-green-500/20 transition-all hover:bg-green-700">
+                        Pesan Sekarang
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </template>
+</div>

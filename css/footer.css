@@ -1,0 +1,31 @@
+/* css/footer.css */
+footer a {
+    position: relative;
+    display: inline-block;
+}
+
+footer ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #16a34a; /* Warna hijau */
+    transition: width 0.3s ease;
+}
+
+footer ul li a:hover::after {
+    width: 100%;
+}
+
+/* Jika elemen AOS tidak kunjung muncul dalam 2 detik, paksa tampil */
+[data-aos] {
+    transition-property: transform, opacity !important;
+}
+
+/* Mencegah footer hilang permanen jika script telat load */
+body.aos-all-done [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+}

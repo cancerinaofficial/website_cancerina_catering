@@ -1,0 +1,118 @@
+<nav x-data="{ scrolled: window.scrollY > 50 }" 
+    x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
+    data-aos="zoom-in"
+    data-aos-delay="100"
+    data-aos-duration="1000"
+    class="fixed left-0 right-0 z-[60] hidden md:flex justify-center transition-all duration-700 ease-in-out will-change-transform transform-gpu"
+    :class="scrolled ? 'top-4' : 'top-8'">
+
+    <div class="glass-effect nav-island flex items-center justify-between shadow-2xl transition-all duration-700 ease-in-out"
+        :class="scrolled 
+            ? 'w-full max-w-[850px] px-8 py-3 rounded-full' 
+            : 'w-[95%] max-w-6xl px-10 py-5 rounded-[2.5rem]'">
+
+        <div class="flex items-center w-[150px] shrink-0">
+            <a href="/" @click.prevent="window.location.href='/'" 
+                class="group flex items-center gap-3 cursor-pointer select-none">
+
+                <div class="relative w-12 h-12 flex items-center justify-center transition-all duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-green-700 rounded-xl shadow-lg transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 group-active:scale-95"
+                        :class="scrolled ? 'scale-95' : 'scale-100'">
+                    </div>
+                    <i class="fa-solid fa-utensils text-white text-xl relative z-10 animate-catering-logic"></i>
+                </div>
+
+                <div class="flex flex-col justify-center transition-all duration-500"
+                    :class="scrolled ? 'translate-x-[-4px]' : ''">
+                    <span class="font-black tracking-widest leading-none transition-all duration-500 text-green-600 dark:text-green-500 group-hover:text-green-700 dark:group-hover:text-green-400" 
+                        :class="scrolled ? 'text-base' : 'text-xl'">
+                        CANCERINA
+                    </span>
+
+                </div>
+            </a>
+        </div>
+
+        <div class="hidden lg:flex items-center px-2 py-1.5 bg-slate-200/50 dark:bg-slate-800/50 backdrop-blur-2xl rounded-2xl border border-white/10 shadow-inner group transition-all duration-500"
+            :class="scrolled ? 'scale-95' : 'scale-100'">
+            
+            <ul class="flex items-center gap-1 text-sm font-bold">
+                <li>
+                <a href="#hero" 
+                @click.prevent="$store.navigasi.pindah('home', '#hero')" 
+                :class="($store.navigasi.halaman === 'home' && (!$store.navigasi.currentHash || $store.navigasi.currentHash === '#hero')) 
+                        ? 'bg-white dark:bg-slate-700 text-green-600 shadow-sm' 
+                        : 'text-slate-600 dark:text-slate-300 hover:text-green-600'" 
+                class="px-5 py-2 rounded-xl transition-all duration-300 block">
+                Beranda
+                </a>
+            </li>
+
+                <li>
+                    <a href="#" 
+                    @click.prevent="$store.navigasi.pindah('menu', '')" 
+                    :class="$store.navigasi.halaman === 'menu' 
+                            ? 'bg-white dark:bg-slate-700 text-green-600 shadow-sm' 
+                            : 'text-slate-600 dark:text-slate-300 hover:text-green-600'" 
+                    class="px-5 py-2 rounded-xl transition-all duration-300 block">
+                    Menu
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#trust" 
+                    @click.prevent="$store.navigasi.pindah('home', '#trust')"
+                    :class="($store.navigasi.halaman === 'home' && $store.navigasi.currentHash === '#trust') 
+                            ? 'bg-white dark:bg-slate-700 text-green-600 shadow-sm' 
+                            : 'text-slate-600 dark:text-slate-300 hover:text-green-600'" 
+                    class="px-5 py-2 rounded-xl transition-all duration-300 block">
+                    Tentang Kami
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact" 
+                    @click.prevent="$store.navigasi.pindah('home', '#contact')"
+                    :class="($store.navigasi.halaman === 'home' && $store.navigasi.currentHash === '#contact') 
+                            ? 'bg-white dark:bg-slate-700 text-green-600 shadow-sm' 
+                            : 'text-slate-600 dark:text-slate-300 hover:text-green-600'" 
+                    class="px-5 py-2 rounded-xl transition-all duration-300 block">
+                    Layanan Kami
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex items-center gap-1 sm:gap-2">
+            <button @click="$store.navigasi.pindah('cart')" 
+                    class="relative flex items-center justify-center transition-all duration-300 group w-9 h-9 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 hover:scale-105 active:scale-95">
+
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 640 640" 
+                    class="h-8 w-8 fill-green-600 dark:fill-green-400 transition-transform group-hover:scale-110">
+                    <path d="M320 64C326.6 64 332.9 66.7 337.4 71.5L481.4 223.5L481.9 224L560 224C577.7 224 592 238.3 592 256C592 270.5 582.4 282.7 569.2 286.7L523.1 493.9C516.6 523.2 490.6 544 460.6 544L179.3 544C149.3 544 123.3 523.2 116.8 493.9L70.8 286.7C57.6 282.8 48 270.5 48 256C48 238.3 62.3 224 80 224L158.1 224L158.6 223.5L302.6 71.5C307.1 66.7 313.4 64 320 64zM320 122.9L224.2 224L415.8 224L320 122.9zM240 328C240 314.7 229.3 304 216 304C202.7 304 192 314.7 192 328L192 440C192 453.3 202.7 464 216 464C229.3 464 240 453.3 240 440L240 328zM320 304C306.7 304 296 314.7 296 328L296 440C296 453.3 306.7 464 320 464C333.3 464 344 453.3 344 440L344 328C344 314.7 333.3 304 320 304zM448 328C448 314.7 437.3 304 424 304C410.7 304 400 314.7 400 328L400 440C400 453.3 410.7 464 424 464C437.3 464 448 453.3 448 440L448 328z"/>
+                </svg>
+
+                <template x-if="$store.keranjang.items.length > 0">
+                    <span class="absolute top-0 right-0 w-5 h-5 bg-red-500 text-white text-[10px] font-black flex items-center justify-center rounded-full border-2 border-white dark:border-slate-900 shadow-md transform translate-x-1 -translate-y-1"
+                        x-text="$store.keranjang.items.length">
+                    </span>
+                </template>
+            </button>
+
+            <div class="h-5 w-[1px] mx-1 bg-slate-300 dark:bg-slate-700 opacity-40"></div>
+
+            <button @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')" 
+                    class="flex items-center justify-center transition-all duration-300 group w-10 h-10 rounded-xl hover:bg-slate-200/50 dark:hover:bg-slate-700/50 active:scale-90">
+                
+                <i x-show="!darkMode" 
+                    class="fa-solid fa-moon text-slate-600 hover:text-indigo-600 transition-all duration-300 text-2xl group-hover:rotate-[-15deg]">
+                </i>
+
+                <i x-show="darkMode" 
+                    class="fa-solid fa-sun text-yellow-400 filter drop-shadow-[0_0_8px_rgba(250,204,21,0.4)] transition-all duration-300 text-2xl group-hover:rotate-[45deg]">
+                </i>
+            </button>
+        </div>
+    </div>
+</nav>

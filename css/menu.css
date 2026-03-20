@@ -1,0 +1,44 @@
+/* Transisi untuk filter kategori (Alpine.js x-show) */
+#full-menu [x-show] {
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Penyesuaian tampilan kartu menu */
+#full-menu .group {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Efek hover pada kartu menu agar terasa lebih hidup */
+#full-menu .group:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* Styling untuk tab filter yang tidak aktif agar lebih kontras di dark mode */
+.dark #full-menu button:not(.bg-green-600) {
+    background-color: rgba(30, 41, 59, 0.5);
+    color: #94a3b8;
+}
+
+/* Memberikan border halus pada gambar menu */
+#full-menu img {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark #full-menu img {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* MOBILE */
+    [x-cloak] { display: none !important; }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }

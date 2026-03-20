@@ -1,0 +1,460 @@
+<!-- Privacy Policy -->
+<div x-data="{ open: false }" 
+    @open-privacy.window="open = true" 
+    x-show="open" 
+    x-cloak
+    class="fixed inset-0 z-[999] overflow-y-auto" 
+    style="display: none;">
+    
+    <div x-show="open" 
+        x-transition:enter="transition ease-out duration-300" 
+        x-transition:enter-start="opacity-0" 
+        x-transition:enter-end="opacity-100" 
+        x-transition:leave="transition ease-in duration-200" 
+        x-transition:leave-start="opacity-100" 
+        x-transition:leave-end="opacity-0" 
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-md">
+    </div>
+
+    <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div x-show="open" 
+            x-transition:enter="transition ease-out duration-300" 
+            x-transition:enter-start="opacity-0 scale-95" 
+            x-transition:enter-end="opacity-100 scale-100" 
+            x-transition:leave="transition ease-in duration-200" 
+            x-transition:leave-start="opacity-100 scale-100" 
+            x-transition:leave-end="opacity-0 scale-95" 
+            class="relative bg-white dark:bg-slate-900 w-full max-w-2xl rounded-[3rem] shadow-2xl overflow-hidden border border-white/20">
+        
+            <div class="p-8 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-black text-slate-800 dark:text-white uppercase tracking-tight">
+                        Privacy Policy
+                    </h3>
+                    <p class="text-[10px] text-cancerina-green font-bold uppercase tracking-[0.28em]">
+                        Cancerina Catering
+                    </p>
+                </div>
+                <button @click="open = false" 
+                        class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-8 max-h-[60vh] overflow-y-auto text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-6 custom-scrollbar">
+                <section>
+                    <h4 class="font-bold text-slate-800 dark:text-white mb-2 italic">
+                        1. Informasi yang Kami Kumpulkan
+                    </h4>
+                    <p>
+                        Kami mengumpulkan informasi yang Anda berikan langsung melalui formulir kontak kami, termasuk nama, nomor WhatsApp, dan detail layanan yang Anda pilih untuk keperluan koordinasi katering.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-800 dark:text-white mb-2 italic">
+                        2. Penggunaan Data
+                    </h4>
+                    <p>
+                        Data Anda hanya digunakan untuk memproses pesanan katering dan memberikan informasi layanan yang relevan. Kami tidak akan menjual atau membagikan data pribadi Anda kepada pihak ketiga tanpa izin.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-800 dark:text-white mb-2 italic">
+                        3. Keamanan
+                    </h4>
+                    <p>
+                        Kami berkomitmen untuk menjaga keamanan data Anda dengan standar perlindungan digital yang tepat untuk mencegah akses yang tidak sah.
+                    </p>
+                </section>
+
+                <p class="text-[10px] italic pt-4 border-t border-slate-100 dark:border-slate-800 text-slate-400">
+                    Terakhir diperbarui: 17 Maret 2026
+                </p>
+            </div>
+
+            <div class="p-8 bg-slate-50 dark:bg-slate-800/50 text-center">
+                <button @click="open = false" 
+                        class="px-10 py-4 bg-cancerina-green text-white text-xs font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-green-700 transition-all shadow-lg shadow-green-500/20 active:scale-95">
+                    Saya Mengerti
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Privacy Policy -->
+
+<!-- Terms of Service -->
+<div x-data="{ open: false }" 
+    @open-terms.window="open = true" 
+    x-show="open" 
+    x-cloak
+    class="fixed inset-0 z-[999] overflow-y-auto" 
+    style="display: none;">
+    
+    <div x-show="open" 
+        x-transition:enter="transition ease-out duration-300" 
+        x-transition:enter-start="opacity-0" 
+        x-transition:enter-end="opacity-100" 
+        x-transition:leave="transition ease-in duration-200" 
+        x-transition:leave-start="opacity-100" 
+        x-transition:leave-end="opacity-0" 
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-md">
+    </div>
+
+    <div class="relative min-h-screen flex items-center justify-center p-4">
+        <div x-show="open" 
+            x-transition:enter="transition ease-out duration-300" 
+            x-transition:enter-start="opacity-0 scale-95" 
+            x-transition:enter-end="opacity-100 scale-100" 
+            x-transition:leave="transition ease-in duration-200" 
+            x-transition:leave-start="opacity-100 scale-100" 
+            x-transition:leave-end="opacity-0 scale-95" 
+            class="relative bg-white dark:bg-slate-900 w-full max-w-2xl rounded-[3rem] shadow-2xl overflow-hidden border border-white/20">
+        
+            <div class="p-8 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-black text-slate-800 dark:text-white uppercase tracking-tight">
+                        Terms of Service
+                    </h3>
+                    <p class="text-[10px] text-cancerina-green font-bold uppercase tracking-[0.48em]">
+                        Ketentuan Layanan
+                    </p>
+                </div>
+                <button @click="open = false" 
+                        class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="p-8 max-h-[60vh] overflow-y-auto text-sm text-slate-600 dark:text-slate-400 leading-relaxed space-y-6 custom-scrollbar">
+                <section>
+                    <h4 class="font-bold text-slate-800 dark:text-white mb-2 italic">
+                        1. Ketentuan Pemesanan
+                    </h4>
+                    <p>
+                        Pemesanan layanan katering disarankan dilakukan selambat-lambatnya H-7 sebelum acara. Konfirmasi pesanan bergantung pada ketersediaan slot produksi pada tanggal yang diminta.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-800 dark:text-white mb-2 italic">
+                        2. Pembayaran & Deposit
+                    </h4>
+                    <p>
+                        Pembayaran uang muka (DP) sebesar 50% diperlukan untuk mengikat jadwal. Pelunasan dilakukan paling lambat pada hari pengiriman atau sesuai dengan kesepakatan tertulis sebelumnya.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-800 dark:text-white mb-2 italic">
+                        3. Perubahan & Pembatalan
+                    </h4>
+                    <p>
+                        Perubahan jumlah pesanan dapat dilakukan maksimal H-4. Pembatalan sepihak setelah dana DP masuk mungkin akan dikenakan biaya administrasi atau hangus sesuai dengan progres belanja bahan baku.
+                    </p>
+                </section>
+
+                <section>
+                    <h4 class="font-bold text-slate-800 dark:text-white mb-2 italic">
+                        4. Tanggung Jawab Pengiriman
+                    </h4>
+                    <p>
+                        Cancerina Catering bertanggung jawab atas kualitas makanan hingga sampai di lokasi tujuan pada waktu yang telah disepakati. Kerusakan makanan akibat penanganan setelah pengiriman di luar tanggung jawab kami.
+                    </p>
+                </section>
+
+                <p class="text-[10px] italic pt-4 border-t border-slate-100 dark:border-slate-800 text-slate-400">
+                    Terakhir diperbarui: 17 Maret 2026
+                </p>
+            </div>
+
+            <div class="p-8 bg-slate-50 dark:bg-slate-800/50 text-center">
+                <button @click="open = false" 
+                        class="px-10 py-4 bg-cancerina-green text-white text-xs font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-green-700 transition-all shadow-lg shadow-green-500/20 active:scale-95">
+                    Saya Setuju
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Terms of Service -->
+
+<!-- Lanjut Pembayaran -->
+<template x-teleport="body">
+    <div x-show="$store.keranjang.isModalOpen" 
+         class="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+        
+        <div class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm" 
+            @click="$store.keranjang.closeModal()">
+        </div>
+
+        <div class="relative bg-white dark:bg-slate-900 w-full max-w-xl rounded-[3rem] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+             x-transition:enter="transition ease-out duration-300 transform"
+             x-transition:enter-start="opacity-0 scale-95 translate-y-8"
+             x-transition:enter-end="opacity-100 scale-100 translate-y-0">
+            
+            <div class="p-8 pb-4 flex justify-between items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-10">
+                <div class="flex items-center gap-4">
+                    <button x-show="$store.keranjang.step > 1" 
+                            @click="$store.keranjang.step--" 
+                            class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-green-600 transition-colors">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <div>
+                        <h3 class="text-2xl font-black text-slate-800 dark:text-white uppercase tracking-tighter leading-none">
+                            Checkout 
+                            <span class="text-green-600">
+                                Pesanan
+                            </span>
+                        </h3>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-2">
+                            Cancerina Catering
+                            <!-- <span x-text="$store.keranjang.step"></span> -->
+                        </p>
+                    </div>
+                </div>
+                <button @click="$store.keranjang.closeModal()" 
+                        class="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-red-500 hover:rotate-90 transition-all">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="p-8 pt-2 overflow-y-auto custom-scrollbar">
+                
+                <div x-show="$store.keranjang.step === 1" 
+                    x-transition:enter="transition ease-out duration-300" 
+                    class="space-y-6">
+                    <div class="bg-slate-50 dark:bg-slate-800/30 p-8 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 space-y-5">
+                        <div class="space-y-2">
+                            <label class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">
+                                Nama Penerima
+                            </label>
+                            <span x-show="$store.keranjang.touched.nama && ($store.keranjang.pelanggan.nama || '').length < 3" 
+                                x-transition.opacity 
+                                class="text-[8px] font-bold text-red-500 uppercase italic tracking-tighter">
+                                *Wajib
+                            </span>
+                            <input type="text" 
+                                x-model="$store.keranjang.pelanggan.nama" 
+                                @blur="$store.keranjang.touched.nama = true"
+                                :class="$store.keranjang.touched.nama && ($store.keranjang.pelanggan.nama || '').length < 3 ? 'ring-2 ring-red-500/50' : 'focus:ring-green-600'"
+                                placeholder="Nama lengkap..." 
+                                class="w-full px-6 py-4 bg-white dark:bg-slate-800 border-none rounded-2xl text-xs font-bold dark:text-white outline-none shadow-sm">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">
+                                WhatsApp
+                            </label>
+                            <span x-show="$store.keranjang.touched.telepon && ($store.keranjang.pelanggan.telepon || '').length < 10" 
+                                x-transition.opacity 
+                                class="text-[8px] font-bold text-red-500 uppercase italic tracking-tighter">
+                                *Wajib
+                            </span>
+                            <input type="tel" 
+                                x-model="$store.keranjang.pelanggan.telepon" 
+                                @blur="$store.keranjang.touched.telepon = true"
+                                :class="$store.keranjang.touched.telepon && ($store.keranjang.pelanggan.telepon || '').length < 10 ? 'ring-2 ring-red-500/50' : 'focus:ring-green-600'"
+                                placeholder="08xxxxxxxxxx" 
+                                class="w-full px-6 py-4 bg-white dark:bg-slate-800 border-none rounded-2xl text-xs font-bold dark:text-white outline-none shadow-sm">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">
+                                Tanggal Kirim
+                            </label>
+                            <span x-show="$store.keranjang.touched.tanggalKirim && !$store.keranjang.pelanggan.tanggalKirim" 
+                                x-transition.opacity 
+                                class="text-[8px] font-bold text-red-500 uppercase italic tracking-tighter">
+                                *Wajib
+                            </span>
+                            <div class="relative group">
+                                <input type="text" 
+                                    x-datepicker="$store.keranjang.pelanggan.tanggalKirim" 
+                                    readonly 
+                                    @blur="$store.keranjang.touched.tanggalKirim = true"
+                                    :class="$store.keranjang.touched.tanggalKirim && !$store.keranjang.pelanggan.tanggalKirim ? 'ring-2 ring-red-500/50' : 'focus:ring-green-600'"
+                                    class="w-full px-6 py-4 bg-white dark:bg-slate-800 border-none rounded-2xl text-xs font-bold dark:text-white outline-none cursor-pointer shadow-sm">
+                                <i class="fa-solid fa-calendar-day absolute right-6 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none group-hover:text-green-600 transition-colors"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[9px] font-black uppercase tracking-widest text-slate-400 ml-2">
+                                Alamat Lengkap
+                            </label>
+                            <span x-show="$store.keranjang.touched.alamat && ($store.keranjang.pelanggan.alamat || '').length < 5" 
+                                x-transition.opacity 
+                                class="text-[8px] font-bold text-red-500 uppercase italic tracking-tighter">
+                                *Wajib
+                            </span>
+                            <textarea x-model="$store.keranjang.pelanggan.alamat" 
+                                    rows="2" 
+                                    @blur="$store.keranjang.touched.alamat = true"
+                                    :class="$store.keranjang.touched.alamat && ($store.keranjang.pelanggan.alamat || '').length < 5 ? 'ring-2 ring-red-500/50' : 'focus:ring-green-600'"
+                                    class="w-full px-6 py-4 bg-white dark:bg-slate-800 border-none rounded-2xl text-xs font-bold dark:text-white outline-none shadow-sm"></textarea>
+                        </div>
+                    </div>
+                    <button @click="$store.keranjang.validasiDanLanjut()" 
+                        class="w-full py-6 bg-green-600 text-white rounded-[2rem] font-black uppercase tracking-[0.2em] text-[10px] shadow-xl shadow-green-500/20 active:scale-95 transition-all"
+                        :class="{ 'opacity-70': !$store.keranjang.isStep1Lengkap, 'animate-shake ring-2 ring-red-500 ring-offset-2 dark:ring-offset-slate-900': $store.keranjang.isShaking }">
+                        <span x-text="$store.keranjang.isStep1Lengkap ? 'Lanjut Pilih Pembayaran' : 'Lengkapi Data Dulu'"></span>
+                        <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                    </button>
+                </div>
+
+                <div x-show="$store.keranjang.step === 2" 
+                    x-transition:enter="transition ease-out duration-300" 
+                    class="space-y-8 pt-4">
+                    <div x-data="{ tipe: 'lunas' }" 
+                        x-init="$watch('tipe', v => $store.keranjang.tipePembayaran = v)">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-2 mb-3 block text-center">
+                                Jenis Pembayaran
+                        </label>
+                        <div class="grid grid-cols-2 gap-3 bg-slate-100 dark:bg-slate-800 p-2 rounded-[2.5rem] shadow-inner">
+                            <button @click="tipe = 'lunas'" 
+                                    :class="tipe === 'lunas' ? 'bg-white dark:bg-slate-700 shadow-lg text-green-600' : 'text-slate-400'"
+                                    class="py-4 rounded-[2rem] text-[10px] font-black uppercase tracking-widest transition-all">
+                                    Lunas (100%)
+                            </button>
+                            <button @click="tipe = 'dp'" 
+                                    :class="tipe === 'dp' ? 'bg-white dark:bg-slate-700 shadow-lg text-green-600' : 'text-slate-400'"
+                                    class="py-4 rounded-[2rem] text-[10px] font-black uppercase tracking-widest transition-all">
+                                    DP (50%)
+                            </button>
+                        </div>
+                    </div>
+
+                    <div x-data="{ open: false }" 
+                        @click.away="open = false" 
+                        class="relative">
+                        <label class="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-4 mb-3 block">
+                            Metode Pembayaran
+                        </label>
+                        <button @click="open = !open" 
+                                class="w-full px-8 py-5 bg-slate-50 dark:bg-slate-800/50 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 flex items-center justify-between shadow-sm transition-all"
+                                :class="open ? 'ring-2 ring-green-600' : ''">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+                                    <i class="fa-solid fa-wallet text-sm"></i>
+                                </div>
+                                <span class="text-sm font-bold tracking-tight" 
+                                    :class="$store.keranjang.metodeTerpilih ? 'text-slate-800 dark:text-white' : 'text-slate-400 italic'">
+                                    <span x-text="$store.keranjang.metodeTerpilih || '-- Pilih Layanan --'"></span>
+                                </span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform" 
+                                :class="open ? 'rotate-180' : ''">
+                            </i>
+                        </button>
+                        <div x-show="open" 
+                            x-transition 
+                            class="absolute z-[70] w-full mt-3 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-2xl p-2">
+                            <template x-for="m in ['Transfer Bank', 'QRIS / E-Wallet', 'Bayar di Tempat (COD)']">
+                                <button @click="$store.keranjang.metodeTerpilih = m; open = false" 
+                                        class="w-full flex items-center gap-4 px-6 py-4 rounded-[1.5rem] transition-colors hover:bg-green-50 dark:hover:bg-green-900/10">
+                                    <i :class="m.includes('Bank') ? 'fa-building-columns' : (m.includes('QRIS') ? 'fa-qrcode' : 'fa-hand-holding-dollar')" class="fa-solid w-5 text-slate-400"></i>
+                                    <span class="text-sm font-bold text-slate-700 dark:text-slate-200" x-text="m"></span>
+                                </button>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-600 rounded-[2.5rem] p-8 text-white shadow-xl shadow-green-500/20 relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 opacity-10 rotate-12">
+                            <i class="fa-solid fa-receipt text-9xl"></i>
+                        </div>
+                        <p class="text-[10px] font-bold uppercase tracking-[0.2em] opacity-80 mb-1">
+                            Total Yang Harus Dibayar
+                        </p>
+                        <h2 class="text-4xl font-black tracking-tighter" 
+                        x-text="$store.keranjang.formatRupiah($store.keranjang.jumlahBayarSekarang)">
+                    </h2>
+                    </div>
+
+                    <button @click="$store.keranjang.step = 3" 
+                            :disabled="!$store.keranjang.metodeTerpilih"
+                            class="w-full py-6 bg-slate-800 dark:bg-slate-700 text-white rounded-[2.5rem] font-black uppercase tracking-[0.2em] text-[10px] shadow-xl active:scale-95 disabled:opacity-50 transition-all flex items-center justify-center gap-3">
+                        Lihat Instruksi Bayar 
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div x-show="$store.keranjang.step === 3" 
+                    x-transition:enter="transition ease-out duration-300" 
+                    class="space-y-8 pt-4">
+                    <div class="bg-white dark:bg-slate-800 p-10 rounded-[3rem] border border-slate-100 dark:border-slate-700 text-center shadow-xl space-y-6">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest">
+                            Detail Pembayaran
+                        </h4>
+
+                        <div class="min-h-[120px] flex items-center justify-center">
+                            <template x-if="$store.keranjang.metodeTerpilih === 'Transfer Bank'">
+                                <div class="space-y-4 w-full">
+                                    <p class="text-[10px] font-black text-slate-400 uppercase">
+                                        Bank BCA - Cancerina Catering
+                                    </p>
+                                    <h3 class="text-3xl font-black tracking-[0.2em] text-slate-800 dark:text-white">
+                                        8830 1234 567
+                                    </h3>
+                                    <button @click="navigator.clipboard.writeText('88301234567'); alert('Nomor disalin!')" 
+                                            class="px-6 py-2 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full text-[10px] font-black uppercase">
+                                            Salin Nomor
+                                    </button>
+                                </div>
+                            </template>
+                            <template x-if="$store.keranjang.metodeTerpilih === 'QRIS / E-Wallet'">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Cancerina" 
+                                class="w-44 h-44 p-4 bg-white rounded-3xl border-2 border-slate-50" 
+                                alt="QRIS">
+                            </template>
+                            <template x-if="$store.keranjang.metodeTerpilih === 'Bayar di Tempat (COD)'">
+                                <div class="space-y-3">
+                                    <i class="fa-solid fa-face-smile-wink text-4xl text-green-500"></i>
+                                    <p class="text-sm font-bold text-slate-600 dark:text-slate-300">
+                                        Siapkan uang tunai sesuai tagihan saat pesanan diantarkan.
+                                    </p>
+                                </div>
+                            </template>
+                        </div>
+
+                        <div class="pt-8 border-t border-dashed border-slate-200 dark:border-slate-700">
+                            <button @click="$store.keranjang.checkout()" 
+        :disabled="$store.keranjang.isProcessing"
+        class="w-full py-6 bg-green-600 text-white rounded-[2rem] font-black uppercase tracking-[0.2em] text-[10px] shadow-lg shadow-green-500/20 active:scale-95 transition-all flex items-center justify-center gap-3"
+        :class="{ 'opacity-80 cursor-not-allowed': $store.keranjang.isProcessing }">
+    
+    <template x-if="$store.keranjang.isProcessing">
+        <div class="flex items-center gap-3">
+            <i class="fa-solid fa-circle-notch animate-spin text-sm"></i>
+            <span>Sedang Memproses...</span>
+        </div>
+    </template>
+
+    <template x-if="!$store.keranjang.isProcessing">
+        <div class="flex items-center gap-2">
+            <span>Konfirmasi di WhatsApp</span>
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+        </div>
+    </template>
+</button>
+
+<button @click="$store.keranjang.step = 2" 
+        x-show="!$store.keranjang.isProcessing"
+        class="mt-4 w-full text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-green-600 transition-colors">
+    Ganti Metode
+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+<!-- End Lanjut Pembayaran -->

@@ -1,0 +1,21 @@
+/* Menyesuaikan warna teks bulan dan tahun saat Dark Mode */
+.dark .flatpickr-calendar {
+    background: #0f172a !important; /* slate-950 */
+    color: white !important;
+    border-color: #1e293b !important; /* slate-800 */
+}
+
+.dark .flatpickr-day {
+    color: #94a3b8 !important; /* slate-400 */
+}
+
+.dark .flatpickr-day.today {
+    border-color: #16a34a !important; /* green-600 */
+}
+
+.dark .flatpickr-current-month, 
+.dark .flatpickr-month, 
+.dark .flatpickr-weekday {
+    color: white !important;
+    fill: white !important;
+}

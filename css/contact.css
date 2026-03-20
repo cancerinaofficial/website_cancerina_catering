@@ -1,0 +1,43 @@
+/* Custom Dashed Line Dekoratif (Sesuai Referensi) */
+.special-dashed-line {
+    /* Hanya sisi kiri */
+    border-left-width: 2px;
+    border-left-style: dashed;
+    
+    /* Sudut-sudut yang dibulatkan agar mengikuti box */
+    border-top-left-radius: 1.5rem; /* Menyamai radius box utama */
+    border-bottom-left-radius: 1.5rem;
+    
+    /* Penting: Matikan sisi lain agar sama seperti referensi */
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+}
+
+/* Mengatur ketebalan dash agar pas seperti referensi */
+.special-dashed-line {
+    /* Kita buat garis menggunakan linear-gradient yang diulang */
+    background-image: linear-gradient(to bottom, #16a34a 60%, transparent 40%);
+    background-position: left;
+    background-size: 2px 12px; /* Lebar 2px, Tinggi total satu pola 12px */
+    background-repeat: repeat-y;
+    
+    /* Tambahkan lengkungan di atas dan bawah agar mengikuti box */
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+/* Sedikit penyesuaian jika dalam mode gelap */
+.dark .special-dashed-line {
+    border-left-color: rgba(34, 197, 94, 0.3) !important; /* Hijau redup */
+}
+
+/* Menargetkan teks di dalam placeholder saja */
+.w-full::placeholder {
+    font-style: italic;
+    opacity: 0.6; /* Opsional: agar teks contoh sedikit memudar */
+}
+
+/* Memastikan saat mengetik teks kembali normal (tegak) */
+.w-full {
+    font-style: normal;
+}
