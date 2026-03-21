@@ -1,0 +1,14 @@
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(-5%); }
+    50% { transform: translateY(0); }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 3s infinite ease-in-out;
+}
+
+/* Fallback Warna jika Tailwind Config tidak terbaca */
+.text-cancerina-green { color: #16a34a; }
+.bg-cancerina-green { background-color: #16a34a; }
+.text-leaf-dark { color: #064e3b; } /* Deep Emerald */
+.bg-leaf-dark { background-color: #064e3b; }

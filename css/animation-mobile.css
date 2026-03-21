@@ -1,0 +1,22 @@
+/* Hanya berlaku untuk layar HP (di bawah 768px) */
+@media (max-width: 767px) {
+    /* Matikan semua transisi CSS */
+    * {
+        /* transition-duration: 0s !important; */
+        /* transition-property: none !important; */
+        /* animation: none !important; */
+    }
+
+    /* Jika kamu menggunakan library AOS (Animate On Scroll) */
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Khusus untuk elemen yang sering punya efek hover/skala */
+    .group:hover img, 
+    .active\:scale-95:active {
+        transform: none !important;
+    }
+}

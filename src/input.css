@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+@layer utilities {
+  .nav-island {
+    /* Menghaluskan perubahan layout */
+    transition-property: width, max-width, padding, margin, border-radius, background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+  }
+}
+
+/* WAJIB: Baris ini untuk memberi tahu Tailwind v4 agar mendeteksi class .dark di <html> */
+@custom-variant dark (&:where(.dark, .dark *));

@@ -1,0 +1,67 @@
+.italic-font {
+    font-family: 'Playfair Display', serif; /* Atau font script lainnya */
+}
+
+/* --- BAGIAN 1: AOS MENCOROT SEKALI (DRAW IN) --- */
+/* (Kita pertahankan ini karena stabil) */
+[data-aos="grow-underline"] path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-aos="grow-underline"].aos-animate path {
+    stroke-dashoffset: 0;
+    /* Jalankan animasi melayang SETELAH AOS selesai (delay 1.5s) */
+    animation: floating-slow 4s ease-in-out infinite 1.5s;
+}
+
+/* --- BAGIAN 2: ANIMASI MELAYANG PELAN (FLOATING) --- */
+/* Kita gerakkan properti 'transform', bukan 'dashoffset' lagi */
+@keyframes floating-slow {
+    0%, 100% {
+        /* Posisi awal (stabil) */
+        transform: translateY(0) scaleX(1);
+        opacity: 1;
+    }
+    50% {
+        /* Melayang sedikit ke bawah & melebar halus */
+        transform: translateY(1.5px) scaleX(1.01);
+        opacity: 0.8; /* Memberikan efek denyut halus */
+    }
+}
+
+/* --- BAGIAN 3: AKSEN VISUAL (NEON GLOW) --- */
+.path-animation {
+    /* Gunakan drop-shadow hijau premium */
+    filter: drop-shadow(0 0 5px rgba(22, 163, 74, 0.5));
+    /* Beri tahu browser properti mana yang akan dianimasikan */
+    will-change: transform, opacity;
+    /* Titik tumpu di tengah agar melayang simetris */
+    transform-origin: center center;
+}
+
+/* Button */
+/* @keyframes button-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(22, 163, 74, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(22, 163, 74, 0.6); }
+} */
+
+/* .group:hover {
+    animation: button-glow 2s infinite;
+} */
+
+@keyframes fire-wobble {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+}
+.animate-fire {
+    animation: fire-wobble 1s ease-in-out infinite;
+}
+
+
+
+/* MOBILE */
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
